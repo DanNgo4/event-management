@@ -14,46 +14,44 @@ const pages = [
 </script>
 
 <template>
-  <section>
-    <header class="d-flex flex-row align-items-center justify-content-between px-5 py-2 bg-primary-subtle">
-      <a class="fs-4 fw-bold bg-transparent cursor-pointer" href="/">
-        Event Management System
-      </a>
+  <header class="d-flex flex-row align-items-center justify-content-between px-5 py-2 bg-primary-subtle">
+    <a class="fs-4 fw-bold bg-transparent cursor-pointer" href="/">
+      Event Management System
+    </a>
 
-      <nav class="d-none d-lg-flex gap-3 align-items-center">
-        <RouterLink to="/">    Home             </RouterLink>
-        <RouterLink to="/info">Event Information</RouterLink>
-        <RouterLink to="/form">Registration Form</RouterLink>
-      </nav>
+    <nav class="d-none d-lg-flex gap-3 align-items-center">
+      <RouterLink to="/">    Home             </RouterLink>
+      <RouterLink to="/info">Event Information</RouterLink>
+      <RouterLink to="/form">Registration Form</RouterLink>
+    </nav>
 
-      <div class="d-flex d-lg-none align-items-center">
-        <button class="btn btn-link p-0" @click="menuRef.toggle($event)">
-          <i class="fas fa-bars fs-3"></i>
-        </button>
+    <section class="d-flex d-lg-none align-items-center">
+      <button class="btn btn-link p-0" @click="menuRef.toggle($event)">
+        <i class="fas fa-bars fs-3"></i>
+      </button>
 
-        <TieredMenu
-          :model="pages"
-          popup
-          ref="menuRef"
-          class="custom-tiered-menu"
-        >
-          <template #item="{ item }">
-            <RouterLink
-              :to="item.route"
-              custom
-              v-slot="{ href }"
-            >
-              <a v-ripple :href="href">
-                <span :class="item.icon"></span>
+      <TieredMenu
+        :model="pages"
+        popup
+        ref="menuRef"
+        class="custom-tiered-menu"
+      >
+        <template #item="{ item }">
+          <RouterLink
+            :to="item.route"
+            custom
+            v-slot="{ href }"
+          >
+            <a v-ripple :href="href">
+              <span :class="item.icon"></span>
 
-                <p>{{ item.label }}</p>
-              </a>
-            </RouterLink>
-          </template>
-        </TieredMenu>
-      </div>
-    </header>
-  </section>
+              <p>{{ item.label }}</p>
+            </a>
+          </RouterLink>
+        </template>
+      </TieredMenu>
+    </section>
+  </header>
 </template>
 
 <style scoped>
