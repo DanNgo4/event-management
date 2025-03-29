@@ -57,12 +57,6 @@ const pages = [
 </template>
 
 <style scoped>
-  .custom-tiered-menu {
-    background-color: rgb(7, 27, 46);
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-  }
-
   .custom-tiered-menu a {
     color: white;
     padding: 0.75rem 1.5rem;
