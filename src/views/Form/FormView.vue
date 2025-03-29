@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 
-import { events } from "src/assets/events";
+import { EVENTS } from "src/assets/events";
 
 const username = ref("");
 const password = ref("");
@@ -12,7 +12,7 @@ const selectedEvent = ref("");
 const passwordsMatch = computed(() => password.value === confirmPassword.value);
 
 const filteredEvents = computed(() => {
-  return events
+  return EVENTS
     .filter((event) => event.category === selectedCategory.value)
     .map((event) => event.eventname);
 });

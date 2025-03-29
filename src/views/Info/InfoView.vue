@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 
-import { events } from "src/assets/events";
+import { EVENTS } from "src/assets/events";
 
 const searchEventId = ref("");
 const searchEventName = ref("");
@@ -9,7 +9,7 @@ const searchDuration = ref("");
 const selectedCategory = ref("All");
 
 const filteredEvents = computed(() => {
-  return events.filter((event) => {
+  return EVENTS.filter((event) => {
     const matchesEventId = event.eventid.toLowerCase().includes(searchEventId.value.toLowerCase());
     const matchesEventName = event.eventname.toLowerCase().includes(searchEventName.value.toLowerCase());
     const matchesDuration = event.durationhour.toString().includes(searchDuration.value);

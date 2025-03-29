@@ -4,6 +4,8 @@ import { RouterLink } from "vue-router";
 
 import TieredMenu from "primevue/tieredmenu";
 
+import { BASE_URL } from "src/assets/baseUrl";
+
 const menuRef = ref(null);
 
 const pages = [
@@ -15,7 +17,7 @@ const pages = [
 
 <template>
   <header class="d-flex flex-row align-items-center justify-content-between px-5 py-2 bg-primary-subtle">
-    <a class="fs-4 fw-bold bg-transparent cursor-pointer" href="/">
+    <a class="fs-4 fw-bold bg-transparent cursor-pointer" :href=BASE_URL>
       Event Management System
     </a>
 
@@ -40,9 +42,8 @@ const pages = [
           <RouterLink
             :to="item.route"
             custom
-            v-slot="{ href }"
           >
-            <a v-ripple :href="href">
+            <a :href="`${BASE_URL}#${item.route}`">
               <span :class="item.icon"></span>
 
               <p>{{ item.label }}</p>
