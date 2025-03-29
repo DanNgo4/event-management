@@ -16,6 +16,21 @@ p {
   margin: 0px;
 }
 
+.custom-tiered-menu {
+  background-color: rgb(7, 27, 46) !important;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+}
+
+.custom-tiered-menu .p-menuitem-link {
+  padding: 7.5rem 1rem;
+  color: #ffffff !important;
+}
+
+.custom-tiered-menu .p-menuitem-link:hover {
+  background-color: #ffffff;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(159, 9%, 37%, 0.2);
