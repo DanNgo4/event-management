@@ -53,7 +53,7 @@
 </template>
 
 <style scoped>
-  .custom-card {
-    height: 8rem;
-  }
+.custom-card {
+  height: 8rem;
+}
 </style>

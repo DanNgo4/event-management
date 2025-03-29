@@ -55,14 +55,14 @@ const pages = [
 </template>
 
 <style scoped>
-  .custom-tiered-menu a {
-    color: white;
-    padding: 0.75rem 1.5rem;
-    display: flex;
-    align-items: center;
-  }
+.custom-tiered-menu a {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
 
-  .custom-tiered-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+.custom-tiered-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 </style>

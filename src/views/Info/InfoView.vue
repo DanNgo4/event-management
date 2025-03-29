@@ -6,7 +6,7 @@ const searchEventName = ref("");
 const searchDuration = ref("");
 const selectedCategory = ref("All");
 
-const events = ref([
+const events = [
   {eventid: 'EVT10001', eventname: 'Tech Innovations Conference', category: 'Technology', durationhour: 8},
   {eventid: 'EVT10002', eventname: 'Startup Pitch Day', category: 'Business', durationhour: 6},
   {eventid: 'EVT10003', eventname: 'AI & Machine Learning Summit', category: 'Technology', durationhour: 10},
@@ -27,10 +27,10 @@ const events = ref([
   {eventid: 'EVT10018', eventname: 'SEO and Content Marketing', category: 'Marketing', durationhour: 7},
   {eventid: 'EVT10019', eventname: 'Cryptocurrency Investment Strategies', category: 'Finance', durationhour: 9},
   {eventid: 'EVT10020', eventname: 'Social Media Marketing Trends', category: 'Marketing', durationhour: 5}
-]);
+];
 
 const filteredEvents = computed(() => {
-  return events.value.filter((event) => {
+  return events.filter((event) => {
     const matchesEventId = event.eventid.toLowerCase().includes(searchEventId.value.toLowerCase());
     const matchesEventName = event.eventname.toLowerCase().includes(searchEventName.value.toLowerCase());
     const matchesDuration = event.durationhour.toString().includes(searchDuration.value);
@@ -45,33 +45,81 @@ const filteredEvents = computed(() => {
   <h1 class="text-center my-4">Event Information</h1>
 
   <article class="mb-5">
-    <section class="container mb-4">
-      <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
-        <div class="d-flex flex-column">
-          <label for="searchEventId">Search by Event ID:</label>
-          <input v-model="searchEventId" type="text" id="searchEventId" class="form-control" />
-        </div>
+    <section class="container d-flex flex-column flex-md-row flex-sm-row flex-wrap justify-content-between mb-4">
+      <p class="d-flex flex-column">
+        <label for="searchEventId">Search by Event ID:</label>
 
-        <div class="d-flex flex-column">
-          <label for="searchEventName">Search by Event Name:</label>
-          <input v-model="searchEventName" type="text" id="searchEventName" class="form-control" />
-        </div>
+        <input v-model="searchEventId"
+                type="text"
+                id="searchEventId"
+                class="form-control" />
+      </p>
 
-        <div class="d-flex flex-column">
-          <label for="searchDuration">Search by Duration (hours):</label>
-          <input v-model="searchDuration" type="number" id="searchDuration" class="form-control" />
-        </div>
+      <p class="d-flex flex-column">
+        <label for="searchEventName">Search by Event Name:</label>
 
-        <div class="d-flex flex-column">
-          <label>Category:</label>
-          <div>
-            <label><input type="radio" value="Technology" v-model="selectedCategory" /> Technology</label>
-            <label><input type="radio" value="Business" v-model="selectedCategory" /> Business</label>
-            <label><input type="radio" value="Marketing" v-model="selectedCategory" /> Marketing</label>
-            <label><input type="radio" value="Finance" v-model="selectedCategory" /> Finance</label>
-            <label><input type="radio" value="All" v-model="selectedCategory" /> All</label>
-          </div>
-        </div>
+        <input v-model="searchEventName"
+                type="text"
+                id="searchEventName"
+                class="form-control" />
+      </p>
+
+      <p class="d-flex flex-column">
+        <label for="searchDuration">Search by Duration (hours):</label>
+
+        <input v-model="searchDuration"
+                type="number"
+                id="searchDuration"
+                class="form-control" />
+      </p>
+
+      <div class="d-flex flex-column">
+        <p>Unit Type:</p>
+
+        <p class="d-flex align-items-center gap-1">
+          <input type="radio"
+                  id="categoryTechnology"
+                  value="Technology"
+                  v-model="selectedCategory" />
+
+          <label for="categoryTechnology">Technology</label>
+        </p>
+
+        <p class="d-flex align-items-center gap-1">
+          <input type="radio"
+                  id="categoryBusiness"
+                  value="Business"
+                  v-model="selectedCategory" />
+
+          <label for="categoryBusiness">Business</label>
+        </p>
+
+        <p class="d-flex align-items-center gap-1">
+          <input type="radio"
+                  id="categoryMarketing"
+                  value="Marketing"
+                  v-model="selectedCategory" />
+
+          <label for="categoryMarketing">Marketing</label>
+        </p>
+
+        <p class="d-flex align-items-center gap-1">
+          <input type="radio"
+                  id="categoryFinance"
+                  value="Finance"
+                  v-model="selectedCategory" />
+
+          <label for="categoryFinance">Finance</label>
+        </p>
+
+        <p class="d-flex align-items-center gap-1">
+          <input type="radio"
+                  id="categoryAll"
+                  value="All"
+                  v-model="selectedCategory" />
+
+          <label for="categoryAll">All</label>
+        </p>
       </div>
     </section>
 
@@ -86,6 +134,7 @@ const filteredEvents = computed(() => {
               <th>Duration (Hours)</th>
             </tr>
           </thead>
+
           <tbody>
             <tr v-for="event in filteredEvents" :key="event.eventid">
               <td>{{ event.eventid }}</td>
@@ -101,11 +150,11 @@ const filteredEvents = computed(() => {
 </template>
 
 <style scoped>
-  .table {
-    margin-top: 20px;
-  }
+.table {
+  margin-top: 20px;
+}
 
-  input, label {
-    margin-bottom: 10px;
-  }
+input, label {
+  margin-bottom: 10px;
+}
 </style>
