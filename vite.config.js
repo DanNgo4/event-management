@@ -17,4 +17,4 @@ export default defineConfig({
   define: {
     __VUE_DEVTOOLS__: false,
   },
-})
+});

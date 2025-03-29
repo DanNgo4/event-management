@@ -10,7 +10,7 @@ const app = createApp(App);
 
 
 router.afterEach((to) => {
-  document.title = "Event Management | " + to.meta.title;
+  document.title = "Event Management | " + (to.meta.title || "Home");
 });
 
 app.use(router).mount("#app");

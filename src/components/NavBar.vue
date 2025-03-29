@@ -21,7 +21,7 @@ import { RouterLink } from "vue-router";
     </header>
   </section>
 
-  <img class="w-100" style="height: 10rem;" src="/src/assets/swinburne_logo.png" />
+  <img class="w-100" style="height: 10rem;" src="src/assets/swinburne_logo.png" />
 </template>
 
 <style scoped>
