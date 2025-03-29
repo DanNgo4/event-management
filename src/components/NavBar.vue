@@ -20,8 +20,6 @@ import { RouterLink } from "vue-router";
       </nav>
     </header>
   </section>
-
-  <img class="w-100" style="height: 10rem;" src="src/assets/swinburne_logo.png" />
 </template>
 
 <style scoped>
